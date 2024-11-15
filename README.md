@@ -1,1 +1,1 @@
-# FnAPI.io Python-Wrapper
+# FortniteAPI.io Python-Wrapper
