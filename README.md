@@ -43,43 +43,43 @@ fnapi.get_userid(myusername)
 --
 - `get_userid(username, **platform)`
 
- - *Fetch the user id from the specified username. *
- - *The platform argument is **optional**, but accepts epic, xbl, and psn. Platform defaults to epic accounts.*
+  *Fetch the user id from the specified username. *
+  *The platform argument is **optional**, but accepts epic, xbl, and psn. Platform defaults to epic accounts.*
 
 - `all_stats(username, **platform)`
 
- - *Fetch all stats for a specified username. This function passes the username to the id resolver to grab the account id. *
- - *The platform argument is **optional**, but accepts epic, xbl, and psn.  Platform defaults to epic accounts.*
+  *Fetch all stats for a specified username. This function passes the username to the id resolver to grab the account id. *
+  *The platform argument is **optional**, but accepts epic, xbl, and psn.  Platform defaults to epic accounts.*
 
 - `all_events(region="NAW",lang="en", arena='false')`
 
- - *Fetch all in-game events. All arguments are optional, but they will default to the values listed unless specified.*
+  *Fetch all in-game events. All arguments are optional, but they will default to the values listed unless specified.*
 
 - `active_events(region="NAW",lang="en", arena='true')`
 
-  - *Functions the same as all_events, but displays only active events.*
+   *Functions the same as all_events, but displays only active events.*
 
 - `live_events(region="NAW",lang="en", arena='true')`
 
-  - *See previous function*
+   *See previous function*
  
 - `list_augments(season='20',lang="en")`
 
- - *List all augments for a given season*
- - *also accepts optional lang argument*
+  *List all augments for a given season*
+  *also accepts optional lang argument*
  
 - `list_drops(search='Active')`
 
- - *Search twitch drops. The deafault searches active drops, but a search term can be passed.*
- - *You can also pass a blank string to return all drops Ex. search = "" *
+  *Search twitch drops. The deafault searches active drops, but a search term can be passed.*
+  *You can also pass a blank string to return all drops Ex. search = "" *
 
 - `rarity_values(lang='en')`
 
- - *return rarity values such as color codes. This is useful for working with items or the shop response.*
+  *return rarity values such as color codes. This is useful for working with items or the shop response.*
 
 - `get_shop(lang='en', render='false')`
- - *Return all items currently shown in the in-game shop.*
- - *Setting (render = true) will return shop items along with the neccesary resources for a visual render of each item. Ex: background color values, item images, etc.*
+  *Return all items currently shown in the in-game shop.*
+  *Setting (render = true) will return shop items along with the neccesary resources for a visual render of each item. Ex: background color values, item images, etc.*
  
  
 ####  More actions will be added soon..
