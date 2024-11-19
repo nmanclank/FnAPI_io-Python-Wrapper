@@ -68,13 +68,13 @@ fnapi.get_userid(myusername)
 
 ---
 
-- `tournament_scores(tourney_id="epicgames_S14_FNCS_Qualifier1_EU_PC")`  
+- `tournament_scores(tourney_id)`  
   *Fetch scores for a given tournament ID.*  
   *Defaults to the provided tournament ID if none is specified.*
 
 ---
 
-- `tournament_data(session_id="fbb092f4356349209e08c06d96eb8f26")`  
+- `tournament_data(session_id)`  
   *Fetch tournament replay data (Meta Data and Replay chunks) for a given session ID.*  
   *Defaults to the provided session ID if none is specified.*
 
@@ -205,7 +205,7 @@ fnapi.get_userid(myusername)
 
 ---
 
-- `creator_code(creator='ninja')`  
+- `creator_code(creator)`  
   *Fetch details for a specified creator code.*  
   *Defaults to 'ninja' if no creator is specified.*
 
