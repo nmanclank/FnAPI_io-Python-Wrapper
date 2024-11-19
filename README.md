@@ -15,7 +15,6 @@ Consider purchasing a premium key to support the author of the API and to unlock
 
 ```python
 from fn_api_wrapper.fn_api import FN_API
-from fn_api_wrapper.models import *
 
 fnapi = FN_API('API_KEY_HERE')
 
