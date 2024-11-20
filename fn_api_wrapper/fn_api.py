@@ -44,6 +44,21 @@ class FN_API:
             raise FN_API_Exception(msg=err)
         
         return player_stats
+
+    def ranked_stats_by_username(self, username: str, platform="None"):
+        '''
+        Ranked player stats are returned by this function. For your convience, you can pass the username with optional platform arg
+        and the username will be resolved to an id. 
+        '''
+        self.username = username
+        catch_id = self.get_userid(username, platform)
+        try:
+            fetch_stats = self._rest_api.get(endpoint=f"v2/ranked/user?account={catch_id}")
+            player_stats = fetch_stats.data            
+        except Exception as err:
+            raise FN_API_Exception(msg=err)
+        
+        return player_stats
     
     def all_stats_by_id(self, id):
         '''
@@ -52,6 +67,19 @@ class FN_API:
         
         try:
             fetch_stats = self._rest_api.get(endpoint=f"v1/stats?account={id}")
+            player_stats = fetch_stats.data            
+        except Exception as err:
+            raise FN_API_Exception(msg=err)
+        
+        return player_stats
+
+    def ranked_stats_by_id(self, id):
+        '''
+        Ranked player stats are returned by this function with given player id.
+        '''
+        
+        try:
+            fetch_stats = self._rest_api.get(endpoint=f"v2/ranked/user?account={id}")
             player_stats = fetch_stats.data            
         except Exception as err:
             raise FN_API_Exception(msg=err)
@@ -344,7 +372,7 @@ class FN_API:
         
         return details
     
-    def get_loot(self, mode='Playlist_DefaultSolo'):
+    def get_loot_spawns(self, mode='Playlist_DefaultSolo'):
         ''' 
         Returns the spawn chances for each loot type for a given game mode
         
