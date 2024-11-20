@@ -55,8 +55,20 @@ fnapi.get_userid(myusername)
 
 ---
 
+- `ranked_stats_by_username(username, **platform)`  
+  *Fetch ranked stats for a specified username. This function passes the username to the ID resolver to grab the account ID.*  
+  *The platform argument is **optional**, but accepts epic, xbl, and psn. Platform defaults to epic accounts.*
+
+---
+
 - `all_stats_by_id(id)`  
   *Fetch all stats for a specified player ID.*  
+  *The player ID is passed directly to the API to retrieve stats.*
+
+---
+
+- `ranked_stats_by_id(id)`  
+  *Fetch ranked stats for a specified player ID.*  
   *The player ID is passed directly to the API to retrieve stats.*
 
 ---
