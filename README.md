@@ -15,7 +15,6 @@ Consider purchasing a premium key to support the author of the API and to unlock
 
 ```python
 from fn_api_wrapper.fn_api import FN_API
-from fn_api_wrapper.models import *
 
 fnapi = FN_API('API_KEY_HERE')
 
@@ -36,59 +35,209 @@ or
 myusername = username 
 fnapi.get_userid(myusername)
 ```
---
+
+
+
+
+
 
 ---
 
---
-- `get_userid(username, **platform)`
-
-  *Fetch the user id from the specified username. *
+- `get_userid(username, **platform)`  
+  *Fetch the user ID from the specified username.*  
   *The platform argument is **optional**, but accepts epic, xbl, and psn. Platform defaults to epic accounts.*
 
-- `all_stats(username, **platform)`
+---
 
-  *Fetch all stats for a specified username. This function passes the username to the id resolver to grab the account id. *
-  *The platform argument is **optional**, but accepts epic, xbl, and psn.  Platform defaults to epic accounts.*
+- `all_stats_by_username(username, **platform)`  
+  *Fetch all stats for a specified username. This function passes the username to the ID resolver to grab the account ID.*  
+  *The platform argument is **optional**, but accepts epic, xbl, and psn. Platform defaults to epic accounts.*
 
-- `all_events(region="NAW",lang="en", arena='false')`
+---
 
-  *Fetch all in-game events. All arguments are optional, but they will default to the values listed unless specified.*
+- `all_stats_by_id(id)`  
+  *Fetch all stats for a specified player ID.*  
+  *The player ID is passed directly to the API to retrieve stats.*
 
-- `active_events(region="NAW",lang="en", arena='true')`
+---
 
-   *Functions the same as all_events, but displays only active events.*
+- `all_tournaments(region="NAW", lang="en", arena='false')`  
+  *Fetch all tournament events with optional region, language, and arena filters.*  
+  *Defaults are region=NAW, lang=en, arena=false.*
 
-- `live_events(region="NAW",lang="en", arena='true')`
+---
 
-   *See previous function*
- 
-- `list_augments(season='20',lang="en")`
+- `tournament_scores(tourney_id)`  
+  *Fetch scores for a given tournament ID.*  
+  *Defaults to the provided tournament ID if none is specified.*
 
-  *List all augments for a given season*
-  *also accepts optional lang argument*
- 
-- `list_drops(search='Active')`
+---
 
-  *Search twitch drops. The deafault searches active drops, but a search term can be passed.*
-  *You can also pass a blank string to return all drops Ex. search = "" *
+- `tournament_data(session_id)`  
+  *Fetch tournament replay data (Meta Data and Replay chunks) for a given session ID.*  
+  *Defaults to the provided session ID if none is specified.*
 
-- `rarity_values(lang='en')`
+---
 
-  *return rarity values such as color codes. This is useful for working with items or the shop response.*
+- `active_events(region="NAW", lang="en", arena='true')`  
+  *Fetch all active events with optional region, language, and arena filters.*  
+  *Defaults are region=NAW, lang=en, arena=true.*
 
-- `get_shop(lang='en', render='false')`
-  *Return all items currently shown in the in-game shop.*
-  *Setting (render = true) will return shop items along with the neccesary resources for a visual render of each item. Ex: background color values, item images, etc.*
- 
- 
-####  More actions will be added soon..
+---
 
+- `live_events(region="NAW", lang="en", arena='true')`  
+  *Fetch all live events with optional region, language, and arena filters.*  
+  *Defaults are region=NAW, lang=en, arena=true.*
 
+---
 
+- `list_augments(season='20', lang="en")`  
+  *Fetch augments for a specified season. The season must have augments available to return.*  
+  *Defaults to season=20 and lang=en.*
 
+---
 
+- `list_drops(search='Active')`  
+  *Fetch active Twitch drops. An empty string can be passed to return all drops.*
 
+---
+
+- `rarity_values(lang='en')`  
+  *Fetch the default rarity value information, such as color values, useful for correctly coloring loot and weapons.*  
+
+---
+
+- `get_shop(lang='en', render='false')`  
+  *Fetch the active shop items.*  
+  *Defaults to lang=en and render=false.*
+
+---
+
+- `upcoming_items(lang='en')`  
+  *Fetch items coming soon to the game.*  
+  *Defaults to lang=en.*
+
+---
+
+- `item_details(item, lang='en')`  
+  *Fetch details for a specific item by ID.*  
+  *Item ID can be found in the full list of items.*
+
+---
+
+- `item_sets(lang='en')`  
+  *Fetch a list of all the sets used by cosmetics.*
+
+---
+
+- `get_news(lang='en')`  
+  *Fetch current news in Fortnite Battle Royale and Save the World.*  
+  *Defaults to lang=en.*
+
+---
+
+- `get_rewards(season='current', lang='en')`  
+  *Fetch battle pass rewards for the given season. Defaults to the current season.*  
+  *Defaults to lang=en.*
+
+---
+
+- `get_achievements(lang='en')`  
+  *Fetch a list of all achievements.*  
+  *Defaults to lang=en.*
+
+---
+
+- `get_map()`  
+  *Fetch the current map image (2048x2048 px).*
+
+---
+
+- `get_poi_map()`  
+  *Fetch the current map image (2048x2048 px) with POI names.*
+
+---
+
+- `get_all_maps()`  
+  *Fetch a list of links for all maps.*
+
+---
+
+- `get_all_season_info(lang='en')`  
+  *Fetch a list of all season dates and associated patch versions.*  
+  *Defaults to lang=en.*
+
+---
+
+- `get_bundles(lang='en')`  
+  *Fetch a list of recent bundles.*  
+  *Defaults to lang=en.*
+
+---
+
+- `get_loot(lang='en')`  
+  *Fetch a list of all loot and weapons in the game, along with basic stats.*  
+  *Defaults to lang=en.*
+
+---
+
+- `loot_stats(loot='WID_Assault_AutoHigh_Athena_SR_Ore_T03', lang='en')`  
+  *Fetch stats for a specific weapon or loot item.*  
+  *Defaults to lang=en.*
+
+---
+
+- `get_modes(lang='en')`  
+  *Fetch a list of all the game modes in the game files.*  
+  *Defaults to lang=en.*
+
+---
+
+- `get_featured_islands()`  
+  *Fetch a list of all current featured islands in Creative mode.*
+
+---
+
+- `search_islands(island='1787-6243-5207')`  
+  *Fetch details for a specified island by its code.*  
+  *Defaults to the provided island code if none is specified.*
+
+---
+
+- `creator_code(creator)`  
+  *Fetch details for a specified creator code.*  
+  *Defaults to 'ninja' if no creator is specified.*
+
+---
+
+- `all_fish(lang='en')`  
+  *Fetch a list of all fish and their details.*  
+  *Defaults to lang=en.*
+
+---
+
+- `current_crew_info(lang='en')`  
+  *Fetch current Fortnite Crew information and pricing.*  
+  *Defaults to lang=en.*
+
+---
+
+- `crew_history(lang='en')`  
+  *Fetch the history of Fortnite Crew information for each month.*  
+  *Defaults to lang=en.*
+
+---
+
+- `discovery_islands()`  
+  *Fetch a list of creative islands in the discovery tab.*
+
+---
+
+- `get_vehicles(lang='en')`  
+  *Fetch a list of all vehicles with stats, names, gear, and icons.*  
+  *Defaults to lang=en.*
+
+---
 
 
 
